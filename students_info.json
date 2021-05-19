@@ -1,0 +1,26 @@
+{
+	"Student1":
+	{
+		"name": "Marwen",
+		"age": "23",
+		"days": ["monday","friday"]
+	},
+	"Student2":
+	{
+		"name": "Nawfel",
+		"age": "22",
+		"days": ["monday","friday"]
+	},
+	"Student3":
+	{
+		"name": "aziz",
+		"age": "22",
+		"days": ["monday","friday","wednesday"]
+	},
+	"Student4":
+	{
+		"name": "Nawfel",
+		"age": "22",
+		"days": ["monday","friday"]
+	}
+}
