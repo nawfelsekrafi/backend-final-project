@@ -9,6 +9,7 @@ video_capture = cv2.VideoCapture(0)
 nawfel_image = face_recognition.load_image_file("images/nawfel.jpg")
 nawfel_face_encoding = face_recognition.face_encodings(nawfel_image)[0]
 
+
 # Load a second sample picture and learn how to recognize it.
 aziz_image = face_recognition.load_image_file("images/aziz.jpg")
 aziz_face_encoding = face_recognition.face_encodings(aziz_image)[0]

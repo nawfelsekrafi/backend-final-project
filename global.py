@@ -47,4 +47,7 @@ else:
 	for s in students:
 		print(s)
 
-#lazem
+#lazem nzid imageList as a key in database
+#lazem ntesti storage of firebase
+#lazem nchouf kifech ntelechargi les image fi folder
+#lazem na3mel for loop in recognition package .
