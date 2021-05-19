@@ -2,27 +2,86 @@ import face_recognition
 import cv2
 import numpy as np
 
+known_face_encodings = []
+known_face_names = []
+import json
+#first of all we need to know what today is
+from datetime import date
+import datetime
+
+today = date.today()
+m = str(today.strftime("%m"))
+d = str(today.strftime("%d"))
+y = str(20) + str(today.strftime("%y"))
+date= d + " " + m + " " + y
+day_name= ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+day = datetime.datetime.strptime(date, '%d %m %Y').weekday()
+today = day_name[day]
+print(today)
+#import upload and download
+import pyrebase
+
+config = {
+    "apiKey": "AIzaSyBMDDOwcndSDbAzRlqYMZ4w0GWCJ_kLVHU",
+    "authDomain": "backend-347db.firebaseapp.com",
+    "databaseURL": "https://backend-347db-default-rtdb.europe-west1.firebasedatabase.app",
+    "projectId": "backend-347db",
+    "storageBucket": "backend-347db.appspot.com",
+    "messagingSenderId": "278802640563",
+    "appId": "1:278802640563:web:5143a4bc0ef6997c9a8ac6"
+}
+
+firebase = pyrebase.initialize_app(config)
+storage = firebase.storage()
+
+
+#Connection with firebase
+import firebase_admin
+from firebase_admin import credentials, db
+
+cred = credentials.Certificate('./ServiceAccountKey.json')
+default_app = firebase_admin.initialize_app(cred, {
+    'databaseURL':'https://backend-347db-default-rtdb.europe-west1.firebasedatabase.app/'
+    })
+
+ref = db.reference("/")
+#post students info
+with open("students_info.json", "r") as f:
+    file_contents = json.load(f)
+ref.set(file_contents)
+ref = db.reference("/")
+
+students = []
+
+q = ref.order_by_child("age").get()
+for key,value in q.items():
+    if today in value["days"]:
+        students.append(value)
+
+if(len(students) == 0):
+    print("We dont have Students for this day")
+else:
+    for s in students:
+        print(s["name"])
+        img_title = str(s["phone_number"]) + ".jpg"
+
+        #donwload
+        path_on_cloud = "images/" + img_title
+        storage.child(path_on_cloud).download("./images/" + img_title)
+        #reconnaissance
+        student_image = face_recognition.load_image_file("images/" + img_title)
+        student_face_encoding = face_recognition.face_encodings(student_image)[0]
+        known_face_encodings.append(student_face_encoding)
+        known_face_names.append(s["name"])
+
+
+
+
 # Get a reference to webcam #0 (the default one)
 video_capture = cv2.VideoCapture(0)
 
-# Load a sample picture and learn how to recognize it.
-nawfel_image = face_recognition.load_image_file("images/nawfel.jpg")
-nawfel_face_encoding = face_recognition.face_encodings(nawfel_image)[0]
 
 
-# Load a second sample picture and learn how to recognize it.
-aziz_image = face_recognition.load_image_file("images/aziz.jpg")
-aziz_face_encoding = face_recognition.face_encodings(aziz_image)[0]
-
-# Create arrays of known face encodings and their names
-known_face_encodings = [
-    nawfel_face_encoding,
-    aziz_face_encoding
-]
-known_face_names = [
-    "Nawfel Sekrafi",
-    "Aziz Lassoued"
-]
 
 # Initialize some variables
 face_locations = []

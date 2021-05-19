@@ -45,9 +45,27 @@ if(len(students) == 0):
 	print("We dont have Students for this day")
 else:
 	for s in students:
-		print(s)
+		print(s["name"])
 
 #lazem nzid imageList as a key in database
-#lazem ntesti storage of firebase
-#lazem nchouf kifech ntelechargi les image fi folder
-#lazem na3mel for loop in recognition package .
+#lazem ntesti storage of firebase #############done
+#lazem nchouf kifech ntelechargi les image fi folder #######done
+#lazem na3mel for loop in recognition package . #########done
+
+#import upload and download
+import pyrebase
+
+config = {
+    "apiKey": "AIzaSyBMDDOwcndSDbAzRlqYMZ4w0GWCJ_kLVHU",
+    "authDomain": "backend-347db.firebaseapp.com",
+    "databaseURL": "https://backend-347db-default-rtdb.europe-west1.firebasedatabase.app",
+    "projectId": "backend-347db",
+    "storageBucket": "backend-347db.appspot.com",
+    "messagingSenderId": "278802640563",
+    "appId": "1:278802640563:web:5143a4bc0ef6997c9a8ac6"
+}
+
+firebase = pyrebase.initialize_app(config)
+storage = firebase.storage()
+path_on_cloud = "images/"+ s["numero"]+"jpg"
+storage.child(path_on_cloud).download("./images/"+img_title)
