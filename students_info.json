@@ -2,28 +2,30 @@
 	"Student1":
 	{
 		"name": "Marwen",
-		"age": "23",
-		"days": ["monday","friday"],
-		"phone_number":23232222
+		"age": 23,
+		"days": ["monday","friday","thursday"],
+		"phone_number": 23232222,
+		"organisationsList": ["FSG","Intellect"],
+		"homeLocation" : "gabes"
 	},
 	"Student2":
 	{
-		"name": "Nawfel",
-		"age": "22",
-		"days": ["monday","friday","thursday"],
-		"phone_number":23232355
+		"name": "Nawfel Sekrafi",
+		"age": 22,
+		"days": ["monday", "friday", "thursday"],
+		"phone_number": 23232355
 	},
 	"Student3":
 	{
 		"name": "aziz",
-		"age": "22",
+		"age": 22,
 		"days": ["monday","friday","wednesday"],
 		"phone_number":23232321
 	},
 	"Student4":
 	{
 		"name": "abdoul",
-		"age": "22",
+		"age": 22,
 		"days": ["monday","friday","thursday"],
 		"phone_number":23232323
 	}

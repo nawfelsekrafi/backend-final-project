@@ -1,25 +1,29 @@
 import face_recognition
 import cv2
 import numpy as np
+import pyrebase
+import firebase_admin
+from firebase_admin import credentials, db
+import json
+from datetime import date
+import datetime
 
 known_face_encodings = []
 known_face_names = []
-import json
-#first of all we need to know what today is
-from datetime import date
-import datetime
+
+# first of all we need to know what today is
 
 today = date.today()
 m = str(today.strftime("%m"))
 d = str(today.strftime("%d"))
 y = str(20) + str(today.strftime("%y"))
-date= d + " " + m + " " + y
-day_name= ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+date = d + " " + m + " " + y
+day_name = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 day = datetime.datetime.strptime(date, '%d %m %Y').weekday()
 today = day_name[day]
 print(today)
-#import upload and download
-import pyrebase
+# import upload and download
+
 
 config = {
     "apiKey": "AIzaSyBMDDOwcndSDbAzRlqYMZ4w0GWCJ_kLVHU",
@@ -35,17 +39,16 @@ firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
 
-#Connection with firebase
-import firebase_admin
-from firebase_admin import credentials, db
+# Connection with firebase
+
 
 cred = credentials.Certificate('./ServiceAccountKey.json')
 default_app = firebase_admin.initialize_app(cred, {
-    'databaseURL':'https://backend-347db-default-rtdb.europe-west1.firebasedatabase.app/'
+    'databaseURL': 'https://backend-347db-default-rtdb.europe-west1.firebasedatabase.app/'
     })
 
 ref = db.reference("/")
-#post students info
+# post students info
 with open("students_info.json", "r") as f:
     file_contents = json.load(f)
 ref.set(file_contents)
@@ -54,34 +57,28 @@ ref = db.reference("/")
 students = []
 
 q = ref.order_by_child("age").get()
-for key,value in q.items():
+for key, value in q.items():
     if today in value["days"]:
         students.append(value)
 
-if(len(students) == 0):
+if len(students) == 0:
     print("We dont have Students for this day")
 else:
     for s in students:
         print(s["name"])
         img_title = str(s["phone_number"]) + ".jpg"
 
-        #donwload
+        # download
         path_on_cloud = "images/" + img_title
         storage.child(path_on_cloud).download("./images/" + img_title)
-        #reconnaissance
+        # reconnaissance
         student_image = face_recognition.load_image_file("images/" + img_title)
         student_face_encoding = face_recognition.face_encodings(student_image)[0]
         known_face_encodings.append(student_face_encoding)
         known_face_names.append(s["name"])
 
-
-
-
 # Get a reference to webcam #0 (the default one)
 video_capture = cv2.VideoCapture(0)
-
-
-
 
 # Initialize some variables
 face_locations = []
@@ -135,7 +132,7 @@ while True:
         left *= 4
 
         # Draw a box around the face
-        cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+        cv2.rectangle(frame, (left, top), (right, bottom), (0, 255,0 ), 2)
 
         # Draw a label with a name below the face
         cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
@@ -152,3 +149,4 @@ while True:
 # Release handle to the webcam
 video_capture.release()
 cv2.destroyAllWindows()
+
