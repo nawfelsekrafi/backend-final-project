@@ -61,9 +61,12 @@ ref = db.reference("/")
 # organization name and logo
 
 organ_name = "Intellect"
-organ_img_name = organ_name.lower()+ "jpg"
-path_on_cloud = "images/" + organ_img_name
-storage.child(path_on_cloud).download("./images/organ" + organ_img_name)
+
+organ_logo_name = organ_name.lower() + ".jpg"
+print(organ_logo_name)
+path_on_cloud = "logos/" + organ_logo_name
+storage.child(path_on_cloud).download("./images/organ_logo/" + organ_logo_name)
+
 # get students info
 students = []
 
@@ -73,7 +76,7 @@ for key, value in q.items():
     for j in value["organization"]:
         if j["name"].lower() == organ_name.lower():
             for i in value["schedule_of_study"]:
-                if i["day"] == today and str(i["year"]) == y and str(i["week"]) == w: # and i["week"] ==
+                if i["day"].lower() == today.lower() and str(i["year"]) == y and str(i["week"]) == w: # and i["week"] ==
                     print(value)
                     students.append(value)
 
