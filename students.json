@@ -1,0 +1,254 @@
+{
+  "Student1": {
+    "id": 12345,
+    "name": "Marwen Shili",
+    "age": 23,
+    "schedule_of_study": [
+      {
+        "day": "monday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]},
+      {
+        "day": "tuesday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      }
+    ],
+    "phone_number": 23232222,
+    "organization": [
+      {
+        "id": 123,
+        "name": "Intellect",
+        "location": [
+          123,
+          123
+        ]
+      }
+    ],
+    "home_location": [
+      3456,
+      567
+    ]
+  },
+  "Student2": {
+    "id": 3456,
+    "name": "Nawfel Sekrafi",
+    "age": 22,
+    "schedule_of_study": [
+      {
+        "day": "monday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      },
+      {
+        "day": "tuesday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      },
+      {
+        "day": "friday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      }
+    ],
+    "phone_number": 23232355,
+     "organization": [
+      {
+        "id": 123,
+        "name": "intellect",
+        "location": [
+          123,
+          123
+        ]
+      }
+    ],
+    "home_location": [
+      3456,
+      567
+    ]
+  },
+  "Student3": {
+    "id": 345236,
+    "name": "aziz",
+    "age": 22,
+    "schedule_of_study": [
+      {
+        "day": "monday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      },
+      {
+        "day": "tuesday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      },
+      {
+        "day": "friday",
+        "week": 1,
+        "year": 2021,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      }
+    ],
+    "phone_number": 23232321,
+     "organization": [
+      {
+        "id": 124,
+        "name": "FSG",
+        "location": [
+          123,
+          123
+        ]
+      }
+    ],
+    "home_location": [
+      3456,
+      567
+    ]
+  },
+  "Student4": {
+    "id": 343456,
+    "name": "abdoul",
+    "age": 22,
+    "schedule_of_study": [
+      {
+        "day": "monday",
+        "week": 1,
+        "year": 2022,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      },
+      {
+        "day": "tuesday",
+        "week": 1,
+        "year": 2022,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      },
+      {
+        "day": "friday",
+        "week": 1,
+        "year": 2022,
+        "hours": [
+          {
+            "start": "14:00",
+            "end": "16:00"
+          },
+          {
+            "start": "8:00",
+            "end": "10:00"
+          }
+        ]
+      }
+    ],
+    "phone_number": 23232323,
+     "organization": [
+      {
+        "id": 123,
+        "name": "Intellect",
+        "location": [
+          123,
+          123
+        ]
+      }
+    ],
+    "home_location": [
+      3456,
+      567
+    ]
+  }
+}

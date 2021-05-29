@@ -1,32 +1,68 @@
 {
-	"Student1":
-	{
-		"name": "Marwen",
-		"age": 23,
-		"days": ["monday","friday","thursday"],
-		"phone_number": 23232222,
-		"organisationsList": ["FSG","Intellect"],
-		"homeLocation" : "gabes"
-	},
-	"Student2":
-	{
-		"name": "Nawfel Sekrafi",
-		"age": 22,
-		"days": ["monday", "friday", "thursday"],
-		"phone_number": 23232355
-	},
-	"Student3":
-	{
-		"name": "aziz",
-		"age": 22,
-		"days": ["monday","friday","wednesday"],
-		"phone_number":23232321
-	},
-	"Student4":
-	{
-		"name": "abdoul",
-		"age": 22,
-		"days": ["monday","friday","thursday"],
-		"phone_number":23232323
-	}
+  "Student1": {
+    "id": 12345,
+    "name": "Marwen",
+    "age": 23,
+    "days": [
+      "monday",
+      "friday",
+      "thursday"
+    ],
+    "phone_number": 23232222,
+    "organisationsList": [
+      {
+        "id": 123,
+        "Name": "Intellect",
+        "location": [
+          123,
+          123
+        ]
+      },
+      {
+        "id": 123,
+        "Name": "FSG",
+        "location": [
+          123,
+          123
+        ]
+      }
+    ],
+    "homeLocation": [
+      3456,
+      567
+    ]
+  },
+  "Student2": {
+    "id": 3456,
+    "name": "Nawfel Sekrafi",
+    "age": 22,
+    "days": [
+      "monday",
+      "friday",
+      "thursday"
+    ],
+    "phone_number": 23232355
+  },
+  "Student3": {
+    "id": 345236,
+    "name": "aziz",
+    "age": 22,
+    "days": [
+      "monday",
+      "friday",
+      "wednesday"
+    ],
+    "phone_number": 23232321
+  },
+  "Student4": {
+    "id": 343456,
+    "name": "abdoul",
+    "age": 22,
+    "days": [
+      "monday",
+      "friday",
+      "thursday"
+    ],
+    "phone_number": 23232323
+  }
 }

@@ -15,8 +15,12 @@ known_face_names = []
 
 today = date.today()
 m = str(today.strftime("%m"))
+
 d = str(today.strftime("%d"))
+
 y = str(20) + str(today.strftime("%y"))
+#to do
+w = "1"
 
 date = d + " " + m + " " + y
 day_name = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
@@ -50,18 +54,31 @@ default_app = firebase_admin.initialize_app(cred, {
 
 ref = db.reference("/")
 # post students info
-with open("students_info.json", "r") as f:
+with open("students.json", "r") as f:
     file_contents = json.load(f)
 ref.set(file_contents)
 ref = db.reference("/")
+# organization name and logo
+
+organ_name = "Intellect"
+organ_img_name = organ_name.lower()+ "jpg"
+path_on_cloud = "images/" + organ_img_name
+storage.child(path_on_cloud).download("./images/organ" + organ_img_name)
 # get students info
 students = []
 
 q = ref.order_by_child("age").get()
 for key, value in q.items():
-    if today in value["days"]: # and scholll is intellect and week is this week and year is this year
-        students.append(value)
+    # test on organization
+    for j in value["organization"]:
+        if j["name"].lower() == organ_name.lower():
+            for i in value["schedule_of_study"]:
+                if i["day"] == today and str(i["year"]) == y and str(i["week"]) == w: # and i["week"] ==
+                    print(value)
+                    students.append(value)
 
+
+"""
 if len(students) == 0:
     print("We dont have Students for this day")
 else:
@@ -71,11 +88,11 @@ else:
 
         # download Student pics
         path_on_cloud = "images/" + img_title
-        storage.child(path_on_cloud).download("./images/" + img_title)
-        # download Organizations logos
+        storage.child(path_on_cloud).download("./images/students" + img_title)
+        
 
         # reconnaissance
-        student_image = face_recognition.load_image_file("images/" + img_title)
+        student_image = face_recognition.load_image_file("images/students" + img_title)
         student_face_encoding = face_recognition.face_encodings(student_image)[0]
         known_face_encodings.append(student_face_encoding)
         known_face_names.append(s["name"])
@@ -153,3 +170,4 @@ while True:
 video_capture.release()
 cv2.destroyAllWindows()
 
+"""
