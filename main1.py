@@ -75,12 +75,18 @@ for key, value in q.items():
     # test on organization
     for j in value["organization"]:
         if j["name"].lower() == organ_name.lower():
-            for i in value["schedule_of_study"]:
-                if i["day"].lower() == today.lower() and str(i["year"]) == y and str(i["week"]) == w: # and i["week"] ==
-                    print(value)
-                    students.append(value)
+            for i in value["weeks_of_study"]:
+                if str(i["year"]) == y and str(i["n"]) == w: # and i["week"] ==
+                    for k in i["days"] :
+                        if today == k["n"]:
+                            print(value)
+                            students.append(value)
 
 
+print("\n[")
+for s in students:
+    print(s)
+print("]")
 """
 if len(students) == 0:
     print("We dont have Students for this day")
