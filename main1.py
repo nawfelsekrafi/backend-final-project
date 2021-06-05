@@ -19,9 +19,10 @@ m = str(today.strftime("%m"))
 d = str(today.strftime("%d"))
 
 y = str(20) + str(today.strftime("%y"))
-#to do
-w = "1"
 
+
+w = today.isocalendar()[1]
+print(w)
 date = d + " " + m + " " + y
 day_name = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 day = datetime.datetime.strptime(date, '%d %m %Y').weekday()
@@ -71,6 +72,7 @@ storage.child(path_on_cloud).download("./images/organ_logo/" + organ_logo_name)
 students = []
 
 q = ref.order_by_child("age").get()
+
 for key, value in q.items():
     # test on organization
     for j in value["organization"]:
