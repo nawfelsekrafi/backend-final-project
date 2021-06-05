@@ -56,26 +56,26 @@ class tournage:
                 for i in j["days"]:
                     if i["n"] == day:
                         # remplir les sous-tabs d'aller
-                        if '8:00' in i["yemchi"]:
+                        if '8:00' in i["go"]:
                             self.go_8.append(s)
-                        if '10:00' in i["yemchi"]:
+                        if '10:00' in i["go"]:
                             self.go_10.append(s)
-                        if '12:00' in i["yemchi"]:
+                        if '12:00' in i["go"]:
                             self.go_12.append(s)
-                        if '14:00' in i["yemchi"]:
+                        if '14:00' in i["go"]:
                             self.go_14.append(s)
-                        if '16:00' in i["yemchi"]:
+                        if '16:00' in i["go"]:
                             self.go_16.append(s)
                         # remplir les sous-tabs de retour
-                        if '10:00' in i["yrawe7"]:
+                        if '10:00' in i["back"]:
                             self.back_10.append(s)
-                        if '12:00' in i["yrawe7"]:
+                        if '12:00' in i["back"]:
                             self.back_12.append(s)
-                        if '14:00' in i["yrawe7"]:
+                        if '14:00' in i["back"]:
                             self.back_14.append(s)
-                        if '16:00' in i["yrawe7"]:
+                        if '16:00' in i["back"]:
                             self.back_16.append(s)
-                        if '18:00' in i["yrawe7"]:
+                        if '18:00' in i["back"]:
                             self.back_18.append(s)
         print("go_8 values")
         for v in self.go_8:

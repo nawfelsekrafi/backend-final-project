@@ -7,7 +7,7 @@ from firebase_admin import credentials, db
 import json
 from datetime import date
 import datetime
-
+import data
 known_face_encodings = []
 known_face_names = []
 
@@ -19,7 +19,6 @@ m = str(today.strftime("%m"))
 d = str(today.strftime("%d"))
 
 y = str(20) + str(today.strftime("%y"))
-
 
 w = today.isocalendar()[1]
 print(w)
@@ -78,10 +77,9 @@ for key, value in q.items():
     for j in value["organization"]:
         if j["name"].lower() == organ_name.lower():
             for i in value["weeks_of_study"]:
-                if str(i["year"]) == y and str(i["n"]) == w: # and i["week"] ==
+                if str(i["year"]) == y :
                     for k in i["days"] :
-                        if today == k["n"]:
-                            print(value)
+                        if today == k["n"] and str(i["n"]) == str(w):
                             students.append(value)
 
 
@@ -181,4 +179,16 @@ while True:
 video_capture.release()
 cv2.destroyAllWindows()
 
+
+if __name__ == "__main__":
+    organization_name = "Intellect"
+    students = []
+    students = data.get_students_data() # done 
+    data.download_students_avatars(students) # done 
+    data.download_organization_logo(organization_name) # done
+    tours.from_big_list_to_small_tours(students)
+    tours.from_small_tours_to_small_sorted_tours()
+    map_representation()
+    recognision_process()
+    print("HI")
 """
