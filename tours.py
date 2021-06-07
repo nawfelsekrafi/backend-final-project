@@ -1,7 +1,7 @@
 import math
 
 
-def from_big_list_to_small_tours(students):
+# def from_big_list_to_small_tours(students):
 
 
 
